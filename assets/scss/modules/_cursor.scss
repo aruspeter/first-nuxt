@@ -1,0 +1,36 @@
+.cursor{ 
+    width: 55px;
+    height: 55px;
+    background:rgb(250, 61, 61);
+    border-radius: 50%;
+    position: absolute;
+    transition-timing-function: ease-out;
+    transition: background 0.5s;
+    .cursor-center{
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: blueviolet;
+        border-radius: 50%;
+        transition: 2s;
+        animation: glow ease-in-out 5s infinite;
+    }
+}
+
+.blue{
+    background: rgb(68, 165, 255) ;
+    transition: background 0.5s;
+}
+
+.steady{
+    animation: none !important;
+    background: rgb(255, 208, 0) !important;
+    transition: background 0.5s;
+}
+
+@keyframes glow{
+    0%{ background-color: blueviolet;}
+    40%{ background-color: cyan; }
+    70%{ background-color: rgb(34, 34, 34);}
+    100%{ background-color: blueviolet;}
+}

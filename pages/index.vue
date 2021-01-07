@@ -1,73 +1,45 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        first-nuxt
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div>
+    <div class="whole">
+      <Header />
+      <Cursorguy />
+      <Hero />
+      <About />
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+    mounted(){
+      const menu =  Array.from(document.querySelectorAll('.lista'));
+      const mews = document.getElementById('mews');
+      const mewsCenters = Array.from(document.querySelectorAll('.cursor-center'));
+
+      function randomNumber(min, max){
+          return Math.random() * (max - min) + min;
+      }
+
+      document.addEventListener('mousemove', (e) => {
+          mews.setAttribute("style", `top: ${e.pageY - 10}px; left: ${e.pageX - 10}px;`);
+          for (let i = 0; i < mewsCenters.length; i++){
+            mewsCenters[i].setAttribute("style", `top: ${e.pageY/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px; left: ${e.pageX/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px;`);
+          }
+      })
+      menu.forEach(item => {
+        item.addEventListener("mouseover", () => {
+          mews.classList.add("blue");
+          mewsCenters.forEach(guy => {
+            guy.classList.add('steady');
+          })
+        })
+        item.addEventListener("mouseout", () =>{
+          mews.classList.remove("blue");
+          mewsCenters.forEach(guy => {
+            guy.classList.remove('steady');
+          })
+        })
+      })
+  }
+}
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

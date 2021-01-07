@@ -9,8 +9,15 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
+    "fullpage-nuxt": "0.0.3",
+    "fullpage-vue": "^2.1.1",
     "nuxt": "^2.14.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0"
+  }
 }
