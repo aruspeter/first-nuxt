@@ -7,7 +7,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'first-nuxt',
+    title: 'Peter Arus',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -36,9 +36,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    ['fullpage-nuxt', {
-      animate: true,
-    }]
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

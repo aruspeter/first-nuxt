@@ -3,31 +3,84 @@
     position: absolute;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    z-index: 1;
     .header-bg{
         position: absolute;
-        height: 90px;
         width: 100%;
-        z-index: 0;
-        opacity: 0.4;
+        opacity: 0.3;
+        height: 265px;
+        @include media-breakpoint-up(md){
+            height: 100px;
+        }
+    }
+    .main-nav{
+        z-index: 10;
+        display: none;
+        @include media-breakpoint-up(md){
+            display: block;
+        }
+    }
+    .nav-mobile{
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @include media-breakpoint-up(md){
+            display: none;
+        }
+        .hamburger{
+            position: absolute;
+            top: 40px;
+            left: 50%px;
+            height: 125px;
+            width: 125px;
+        }
+        nav{
+            display: none;
+            ul{
+                display: block;
+                li{
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+        }
+        .nav-shown{
+            display: block;
+        }
     }
     nav{
-        z-index: 1000;
         ul{
             list-style: none;
             display: flex;
             justify-content: space-between;
             padding: 25px 25px;
+            transform: rotate(-.6deg);
             li{
-                a{
-                    text-decoration: none;
-                    color: rgb(223, 223, 223);
-                    margin: 0px 20px;
-                    font-size: 18px;
-                    cursor: none;
-                }
+                margin: 0 20px;
             }
         }
     }
+    .back{
+        color: rgb(255, 208, 0);
+    }
 
+}
+.hamburger-animate{
+    animation: hamburger 0.2s linear;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hamburger{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
 }
