@@ -1,15 +1,21 @@
 .header{
     padding: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     z-index: 1;
+    height: 170px;
+    background-color: #111018;
+    margin-bottom: -1px;
+    @include media-breakpoint-up(md){
+        position: absolute;
+    }
     .header-bg{
         position: absolute;
         width: 100%;
         opacity: 0.3;
-        height: 265px;
+        height: inherit;
         @include media-breakpoint-up(md){
             height: 100px;
         }
@@ -23,7 +29,7 @@
     }
     .nav-mobile{
         z-index: 10;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -34,17 +40,41 @@
         }
         .hamburger{
             position: absolute;
-            top: 40px;
-            left: 50%px;
-            height: 125px;
-            width: 125px;
+            top: 30px;
+            left: 30px;
+            height: 50px;
+            width: fit-content;
+            .line{
+                position: relative;
+                background-color: white;
+                height: 4px;
+                width: 50px;
+                margin: 11px 0;
+                transition: 0.2s;
+            }
+            .animate{
+                position: absolute;
+                top: 14px;
+                &:nth-child(1){
+                    transform: rotate(45deg);
+                    transition: 0.2s;
+                }
+                &:nth-child(2){
+                    display: none;
+                }
+                &:nth-child(3){
+                    transform: rotate(-45deg);
+                    transition: 0.2s;               
+                }
+            }
         }
         nav{
             display: none;
             ul{
                 display: block;
+                padding: 16px;
                 li{
-                    margin: 10px 0;
+                    margin: 14px 0;
                     text-align: center;
                 }
             }
@@ -58,15 +88,25 @@
             list-style: none;
             display: flex;
             justify-content: space-between;
-            padding: 25px 25px;
-            transform: rotate(-.6deg);
+            padding: 15px 25px;
+            transition: transform 0.5s;
+
+            &:hover{
+                transform: rotate(-.6deg);
+                transition: 0.5s;
+            }
             li{
                 margin: 0 20px;
             }
         }
     }
-    .back{
+    .active{
         color: rgb(255, 208, 0);
+        transition: color .3s;
+        &:hover{
+            color:  rgb(255, 89, 89);
+            transition: color .5s;
+        }
     }
 
 }

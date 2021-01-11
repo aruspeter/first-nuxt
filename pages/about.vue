@@ -1,14 +1,20 @@
 <template>
-    <div class="whole">
-        <Header/>
-        <About />
-        <Footer />
+    <div>
+        <div class="whole">
+            <Header/>
+            <About />
+            <Footer />
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    aboutpage: true,
+    head(){
+        return{
+            title: 'About'  
+        }
+    },
     mounted(){
         console.log(this.aboutpage)
     }

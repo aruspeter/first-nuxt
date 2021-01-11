@@ -2,24 +2,32 @@ h1, h2, h3, h4, p, a{
     color: white;
     opacity: 0.9;
     letter-spacing: 1px;
+    font-weight: normal;
+
     @include media-breakpoint-up(lg){
         letter-spacing: 1.5px;
     }
 }
 
+h1, h2{
+    z-index: 10;
+}
+
 h1{
-    font-size: 42px;
+    font-size: 38px;
     line-height: 72px;
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(md){
         font-size: 55px;
+        margin-bottom: 25px;
     }
 }
 
 h2{
-    font-size: 36px;
+    font-size: 26px;
     line-height: 56px;
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(md){
         font-size: 42px;
+        margin-bottom: 10px;
     }
 }
 
@@ -33,11 +41,14 @@ p{
 a{
     cursor: none;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 22px;
     transition: color .3s;
     &:hover{
-        color: rgb(255, 208, 0);
-        text-shadow: .1px .1px .1px #18181D;
+        color:  rgb(255, 89, 89);
         transition: color .5s;
+    }
+    @include media-breakpoint-up(md){
+        font-size: 32px;
+        letter-spacing: 2px
     }
 }

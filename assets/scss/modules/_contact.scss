@@ -1,0 +1,23 @@
+.contact{
+    position: relative;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+
+    @include media-breakpoint-up(md){
+        width: 90%;
+        height: 80%;
+        padding: 50px ;
+    }
+    .contact-bg{
+        position: absolute;
+        bottom: 0;
+        width: inherit;
+        height: 100%;
+        object-fit: cover;
+        @include media-breakpoint-up(md){
+            object-fit: fill;
+        }
+    }
+}

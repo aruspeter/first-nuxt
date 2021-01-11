@@ -2,8 +2,7 @@
   <div>
     <div class="whole">
       <Header />
-      <Hero />
-      <Footer />
+      <Contact />
     </div>
   </div>
 </template>
@@ -12,9 +11,8 @@
 export default{
   head(){
     return{
-      title: 'Homepage',
+      title: 'Contact',
     }
   }
 }
-
 </script>

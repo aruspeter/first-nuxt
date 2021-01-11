@@ -3,25 +3,29 @@
         <Cursorguy />
         <img class="header-bg" src="~/assets/images/1.png">
         <div class="nav-mobile">
-            <img  class="hamburger" :class="{'hamburger-animate': navIsOpen}" src="~/assets/icons/hamburger.png" @click="openNav()" id="hamburger">
+            <div  class="hamburger" @click="openNav()" id="hamburger">
+                <div class="line line-one"></div>
+                <div class="line line-two"></div>
+                <div class="line line-go"></div>
+            </div>
             <nav :class="{'nav-shown': navIsOpen}">
                 <ul>
-                    <li v-if="notHome()" ><a href="/" class="back">back to home</a></li>
-                    <li v-if="notAbout()"><a href="/about">about me</a></li>
-                    <li v-if="notWorks()"><a href="/works">works</a></li>
-                    <li v-if="notSkills()"><a href="/skills">skills</a></li>
-                    <li v-if="notContact()"><a href="/contact">contact</a></li>
+                    <li v-if="notHome()" ><nuxt-link to="/" class="back">back to home</nuxt-link></li>
+                    <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
+                    <li v-if="notWorks()"><nuxt-link to="/works">works</nuxt-link></li>
+                    <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
+                    <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
                 </ul>
             </nav>
         </div>
         <div class="main-nav">
             <nav>
                 <ul>
-                    <li v-if="notHome()" ><a href="/" class="back">back to home</a></li>
-                    <li v-if="notAbout()"><a href="/about">about me</a></li>
-                    <li v-if="notWorks()"><a href="/works">works</a></li>
-                    <li v-if="notSkills()"><a href="/skills">skills</a></li>
-                    <li v-if="notContact()"><a href="/contact">contact</a></li>
+                    <li v-if="notHome()" ><nuxt-link to="/" class="active">back to home</nuxt-link></li>
+                    <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
+                    <li v-if="notWorks()"><nuxt-link to="/works">works</nuxt-link></li>
+                    <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
+                    <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
                 </ul>
             </nav>
         </div>
@@ -38,6 +42,11 @@ export default {
     methods:{
         openNav(){
             this.navIsOpen = !this.navIsOpen;
+            const lines = document.getElementsByClassName('line');
+            console.log(lines)
+            lines.forEach(line => {
+                line.classList.toggle('animate');
+            })
         },
         notHome(){
             return window.location.href.split("/")[3] != "";
