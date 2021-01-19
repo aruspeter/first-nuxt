@@ -2,7 +2,7 @@
   <div>
     <div class="whole">
       <Header />
-      <Contact />
+      <Work />
       <Footer />
     </div>
   </div>
@@ -12,7 +12,7 @@
 export default{
   head(){
     return{
-      title: 'Contact',
+      title: 'Works',
     }
   }
 }

@@ -1,0 +1,19 @@
+.skills{
+    h3, h4, h5, h6{
+        margin: 10px 0;
+    }
+    .skills-section{
+        margin: 40px 0;
+        &__glow{
+            h3, h4, h5, h6{
+                animation: glow4 15s infinite ease-in-out;
+            }
+        }
+    }
+    @keyframes glow4{
+        0%{ color: blueviolet;}
+        40%{ color: rgb(250, 61, 61); }
+        70%{ color: rgb(34, 34, 34);}
+        100%{ color: blueviolet;}
+    }
+}

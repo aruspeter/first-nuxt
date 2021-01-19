@@ -2,18 +2,18 @@
     <div class="header">
         <Cursorguy />
         <img class="header-bg" src="~/assets/images/1.png">
-        <div class="nav-mobile">
-            <div  class="hamburger" @click="openNav()" id="hamburger">
-                <div class="line line-one"></div>
-                <div class="line line-two"></div>
-                <div class="line line-go"></div>
-            </div>
-            <nav :class="{'nav-shown': navIsOpen}">
+        <div  class="hamburger" @click="openNav()" id="hamburger">
+            <div class="line line-one"></div>
+            <div class="line line-two"></div>
+            <div class="line line-go"></div>
+        </div>
+        <div class="nav-mobile" :class="{'nav-shown': navIsOpen}">
+            <nav>
                 <ul>
                     <li v-if="notHome()" ><nuxt-link to="/" class="back">back to home</nuxt-link></li>
                     <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
-                    <li v-if="notWorks()"><nuxt-link to="/works">works</nuxt-link></li>
                     <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
+                    <li v-if="notWorks()"><nuxt-link to="/work">works</nuxt-link></li>
                     <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
                 </ul>
             </nav>
@@ -23,8 +23,8 @@
                 <ul>
                     <li v-if="notHome()" ><nuxt-link to="/" class="active">back to home</nuxt-link></li>
                     <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
-                    <li v-if="notWorks()"><nuxt-link to="/works">works</nuxt-link></li>
                     <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
+                    <li v-if="notWorks()"><nuxt-link to="/work">works</nuxt-link></li>
                     <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
                 </ul>
             </nav>

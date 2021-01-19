@@ -1,9 +1,15 @@
 <template>
   <div>
+    <div class="loader" id="loader"></div>
     <Nuxt />
   </div>
 </template>
 
-<style>
-
-</style>
+<script>
+export default {
+  mounted(){
+    const loader = document.getElementById('loader');
+    loader.classList.add('loaded')
+  }
+}
+</script>

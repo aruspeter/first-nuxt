@@ -4,18 +4,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    z-index: 1;
-    height: 170px;
+    z-index: 100;
+    min-height: 120px;
+    height: fit-content;
     background-color: #111018;
     margin-bottom: -1px;
-    @include media-breakpoint-up(md){
-        position: absolute;
-    }
     .header-bg{
         position: absolute;
         width: 100%;
         opacity: 0.3;
-        height: inherit;
+        height: 120px;
         @include media-breakpoint-up(md){
             height: 100px;
         }
@@ -27,49 +25,54 @@
             display: block;
         }
     }
-    .nav-mobile{
-        z-index: 10;
+    .hamburger{
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        top: 30px;
+        left: 30px;
+        height: 50px;
+        width: fit-content;
+        z-index: 100;
         @include media-breakpoint-up(md){
             display: none;
         }
-        .hamburger{
+        .line{
+            position: relative;
+            background-color: white;
+            height: 4px;
+            width: 50px;
+            margin: 11px 0;
+            transition: 0.2s;
+        }
+        .animate{
             position: absolute;
-            top: 30px;
-            left: 30px;
-            height: 50px;
-            width: fit-content;
-            .line{
-                position: relative;
-                background-color: white;
-                height: 4px;
-                width: 50px;
-                margin: 11px 0;
+            top: 14px;
+            &:nth-child(1){
+                transform: rotate(45deg);
                 transition: 0.2s;
             }
-            .animate{
-                position: absolute;
-                top: 14px;
-                &:nth-child(1){
-                    transform: rotate(45deg);
-                    transition: 0.2s;
-                }
-                &:nth-child(2){
-                    display: none;
-                }
-                &:nth-child(3){
-                    transform: rotate(-45deg);
-                    transition: 0.2s;               
-                }
+            &:nth-child(2){
+                display: none;
+            }
+            &:nth-child(3){
+                transform: rotate(-45deg);
+                transition: 0.2s;               
             }
         }
-        nav{
+    }
+    .nav-mobile{
+        z-index: 10;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        background-color: #111018;
+        height: 250px;
+        @include media-breakpoint-up(md){
             display: none;
+        }
+        nav{
             ul{
                 display: block;
                 padding: 16px;
@@ -79,9 +82,17 @@
                 }
             }
         }
-        .nav-shown{
-            display: block;
+    }
+    .nav-shown{
+        display: block;
+        animation: down 0.5s;
+        @include media-breakpoint-up(md){
+            display: none;
         }
+    }
+    @keyframes down{
+        0%{top: -200px;}
+        100%{top: 0}
     }
     nav{
         ul{

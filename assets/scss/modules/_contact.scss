@@ -1,9 +1,24 @@
 .contact{
     position: relative;
     width: 320px;
+    min-height: calc(100vh - 260px);
     display: flex;
     justify-content: center;
-    align-self: flex-end;
+    align-items: center;
+    z-index: 100;
+    h2{
+        a{
+            color:  rgb(250, 61, 61);
+            text-shadow: 2px 1px 1px #111018,  -2px -2px 1px #111018,  -1px 1px 1px #111018, 1px -2px 1px #111018;
+            font-size: 26px;
+            line-height: 38px;
+            @include media-breakpoint-up(md){
+                font-size: 42px;
+                line-height: 56px;
+                margin-bottom: 10px;
+            }
+        }
+    }
 
     @include media-breakpoint-up(md){
         width: 90%;
@@ -11,13 +26,17 @@
         padding: 50px ;
     }
     .contact-bg{
+        display: none;
         position: absolute;
-        bottom: 0;
+        bottom: -120px;
         width: inherit;
         height: 100%;
         object-fit: cover;
         @include media-breakpoint-up(md){
             object-fit: fill;
+        }
+        @include media-breakpoint-up(lg){
+            display: block;
         }
     }
 }
