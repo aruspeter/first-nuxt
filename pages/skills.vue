@@ -1,15 +1,14 @@
 <template>
   <div>
     <div class="whole">
-      <Header />
       <Skills />
-      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 export default{
+  transition: 'skills',
   head(){
     return{
       title: 'Skills',

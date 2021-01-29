@@ -1,15 +1,17 @@
 <template>
   <div>
     <div class="whole">
-      <Header />
       <Contact />
-      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 export default{
+  transition: {
+      name: 'contact',
+      mode: 'out-in'
+    },
   head(){
     return{
       title: 'Contact',

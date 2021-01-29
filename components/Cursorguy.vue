@@ -23,11 +23,12 @@
       function randomNumber(min, max){
           return Math.random() * (max - min) + min;
       }
-
       document.addEventListener('mousemove', (e) => {
-          mews.setAttribute("style", `top: ${e.pageY - 10}px; left: ${e.pageX - 10}px;`);
+          if (document.body.clientWidth >= 1200){
+            mews.setAttribute("style", `position: fixed; top: ${e.screenY - 10}px; left: ${e.pageX - 10}px;`);
+          }
           for (let i = 0; i < mewsCenters.length; i++){
-            mewsCenters[i].setAttribute("style", `top: ${e.pageY/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px; left: ${e.pageX/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px;`);
+            mewsCenters[i].setAttribute("style", ` top: ${e.screenY/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px; left: ${e.pageX/(i + 1) - randomNumber(0-(i + 1)*50, (i + 1)*50)}px;`);
           }
       })
       menu.forEach(item => {

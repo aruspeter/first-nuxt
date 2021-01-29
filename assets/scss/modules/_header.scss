@@ -119,6 +119,10 @@
             transition: color .5s;
         }
     }
+    .nuxt-link-exact-active{
+        color:  rgb(255, 89, 89);
+        transition: color .5s;
+    }
 
 }
 .hamburger-animate{

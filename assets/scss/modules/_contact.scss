@@ -40,3 +40,6 @@
         }
     }
 }
+
+.contact-enter-active, .contact-leave-active {transition: transform .3s;}
+.contact-enter, .contact-leave-active {transform: translateX(-100vw);}

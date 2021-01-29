@@ -32,9 +32,12 @@
             }
         }
         .is-open{
-            height: 330px;
-            @include media-breakpoint-up(md){
+            height: 290px;
+            @include media-breakpoint-up(sm){
                 height: 220px;
+            }
+            @include media-breakpoint-up(md){
+                height: 170px;
             }
             transition: height .5s;
             display: block;
@@ -95,3 +98,5 @@
         }
     }
 }
+.works-enter-active, .works-leave-active {transition: opacity .3s;}
+.works-enter, .works-leave-active {opacity: 0;}

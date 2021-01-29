@@ -10,22 +10,14 @@
         <div class="nav-mobile" :class="{'nav-shown': navIsOpen}">
             <nav>
                 <ul>
-                    <li v-if="notHome()" ><nuxt-link to="/" class="back">back to home</nuxt-link></li>
-                    <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
-                    <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
-                    <li v-if="notWorks()"><nuxt-link to="/work">works</nuxt-link></li>
-                    <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
+                    <li :v-if="navItems" v-for="(item, index) in navItems" :key="index" @click="openNav"><nuxt-link :to="item.href">{{item.text}}</nuxt-link></li>
                 </ul>
             </nav>
         </div>
         <div class="main-nav">
             <nav>
                 <ul>
-                    <li v-if="notHome()" ><nuxt-link to="/" class="active">back to home</nuxt-link></li>
-                    <li v-if="notAbout()"><nuxt-link to="/about">about me</nuxt-link></li>
-                    <li v-if="notSkills()"><nuxt-link to="/skills">skills</nuxt-link></li>
-                    <li v-if="notWorks()"><nuxt-link to="/work">works</nuxt-link></li>
-                    <li v-if="notContact()"><nuxt-link to="/contact">contact</nuxt-link></li>
+                    <li :v-if="navItems" v-for="(item, index) in navItems" :key="index" class="main-nav-item"><nuxt-link :to="item.href">{{item.text}}</nuxt-link></li>
                 </ul>
             </nav>
         </div>
@@ -36,8 +28,30 @@
 export default {
     data(){
         return {
-            navIsOpen: false
-        };
+            navIsOpen: false,
+            navItems: [
+                {
+                    text: "home",
+                    href: '/'
+                },
+                {
+                    text: "about",
+                    href: '/about'
+                },
+                {
+                    text: "work",
+                    href: '/work'
+                },
+                {
+                    text: "skills",
+                    href: '/skills'
+                },
+                {
+                    text: "contact",
+                    href: '/contact'
+                }
+            ]
+        }
     },
     methods:{
         openNav(){
@@ -48,21 +62,6 @@ export default {
                 line.classList.toggle('animate');
             })
         },
-        notHome(){
-            return window.location.href.split("/")[3] != "";
-        },
-        notAbout(){
-            return window.location.href.split("/")[3] != "about";
-        },
-        notWorks(){
-            return window.location.href.split("/")[3] != "works";
-        },
-        notSkills(){
-            return window.location.href.split("/")[3] != "skills";
-        },
-        notContact(){
-            return window.location.href.split("/")[3] != "contact";
-        },
-    }
+    },
 }
 </script>

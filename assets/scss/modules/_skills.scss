@@ -17,3 +17,5 @@
         100%{ color: blueviolet;}
     }
 }
+.skills-enter-active, .skills-leave-active {transition: opacity .3s;}
+.skills-enter, .skills-leave-active {opacity: 0;}
