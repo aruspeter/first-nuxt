@@ -1,5 +1,7 @@
 # first-nuxt
 
+This is my first nuxt project, testing its features while also updating my portfolio site
+
 ## Build Setup
 
 ```bash
